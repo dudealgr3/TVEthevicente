@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE VICENTE EXPERIENCE</title>
+    
+</head>
+
+<body>
+    <div class="game-wrapper">
+
+    <!-- Menú principal -->
+    <div id="main-menu">
+        <h1>THE VICENTE EXPERIENCE</h1>
+        <button id="start-btn" class="menu-btn">Comenzar Juego</button>
+        <button id="scores-btn" class="menu-btn">Ver Puntuaciones</button>
+        <div id="instructions">
+            <h2>Instrucciones:</h2>
+            <p>!VICENTE QUIERE TOMAR! ¡Atrapa las mistrales antes de que toquen el suelo!</p>
+            <ul>
+                <li><strong>Mistral negra:</strong> +20 puntos (pierdes 5 puntos y una vida si cae)</li>
+                <li><strong>Chela Escudo:</strong> +40 puntos </li>
+                <li><strong>Vodka: </strong> -25 puntos y -1 vida por tomar colonia</li>
+                <li><strong>Completo:</strong> +1 vida (solo si has perdido vidas)</li>
+                <li><strong>Doragua:</strong> ¡Apagai tele, quedai hinchao y se termina el juego!</li>
+                <li><strong>Cogollo:</strong> ¡Activa el modo bonus para tomar caleta!</li>
+            </ul>
+            <p>El juego se vuelve más difícil a medida que avanzas. ¡Ten cuidado con el vodka que aparece más
+                frecuentemente!</p>
+            <p>Tienes 5 vidas iniciales. Pierdes una vida cada vez que una mistral se hace pico en el suelo.</p>
+        </div>
+    </div>
+
+    <!-- Tabla de puntuaciones -->
+    <div id="scoreboard">
+        <h2>Alcholicos profesionales: </h2>
+        <table id="scores-table">
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Nombre</th>
+                    <th>Puntuación</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody id="scores-body">
+                <!-- Las puntuaciones se llenarán con JavaScript -->
+            </tbody>
+        </table>
+        <button id="back-btn">Volver al Menú</button>
+    </div>
+
+    <!-- Input de nombre del jugador -->
+    <div id="player-name-input">
+        <h2>Ingresa tu nombre</h2>
+        <input type="text" id="name-input" maxlength="20" placeholder="Tu nombre">
+        <button id="name-submit">Empezar la wea</button>
+    </div>
+
+    <!-- Juego -->
+    <div id="game-container">
+        <!-- Disco lights (added dynamically) -->
+
+        <div id="game-ui">
+            <span id="score">Puntos: 0</span>
+            <span id="lives">❤️❤️❤️</span>
+            <span id="difficulty">Nivel: 1</span>
+        </div>
+
+        <div id="message-box" class="message-normal">
+            <div id="message-content">
+                <div id="message-icon"></div>
+                <div id="message-text">¡Atrapa las mistrales!</div>
+            </div>
+        </div>
+
+        <div id="cooldown-bar" style="display: none;">
+            <div id="cooldown-progress"></div>
+        </div>
+
+        <div id="clock-icon"></div>
+
+        <div id="avatar-container">
+            <div id="avatar" class="avatar-neutral"></div>
+        </div>
+
+        <div id="tasty-character"></div>
+
+        <div id="bonus-screen">
+            <div id="bonus-title">¡¡Depositaron!</div>
+            <div id="bonus-subtitle">Aprovecha el BONUS para tomar la mayor cantidad de mistrales posibles<br>¡Cuidado
+                con el vodka!</div>
+        </div>
+
+        <div id="end-bonus-screen">
+            <div id="end-bonus-title">¡FIN DEL BONUS!</div>
+            <div id="end-bonus-subtitle">¡Tiempo de descanso! Prepárate para que continúe el juego</div>
+        </div>
+
+        <div id="game-over">
+            <h1>GAME OVER TE PEGASTE EL SHOW</h1>
+            <p id="final-score">Puntuación final: 0</p>
+            <button id="restart-btn" class="game-over-btn">Reiniciar</button>
+            <button id="menu-btn" class="game-over-btn">Menú Principal</button>
+        </div>
+
+        <!-- Controles de audio -->
+        <div id="audio-controls">
+            <button id="toggle-music">🔊</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Audio elements -->
+    <audio id="menu-music" loop>
+        <source src="canciones/menu.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="game-music" loop>
+        <!-- La fuente se establecerá dinámicamente -->
+    </audio>
+
+    <audio id="click-sound">
+        <source src="canciones/sounds/on.ogg" type="audio/mpeg">
+    </audio>
+
+    <audio id="beer-catch-sound">
+        <source src="canciones/sounds/drinking-sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="bad-click-sound">
+        <source src="canciones/sounds/pisco.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="life-up-sound">
+        <source src="canciones/sounds/que-rricoh-eh.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="beer-miss-sound">
+        <source src="canciones/sounds/glass-shattering.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="game-over-sound">
+        <source src="canciones/sounds/fartmeme.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="bonus-sound">
+        <source src="canciones/sounds/bobmarleyshort.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="tasty-sound">
+        <source src="canciones/sounds/toasty_tfCWsU6.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="clock-tick-sound" loop>
+        <source src="canciones/sounds/clock-tick.mp3" type="audio/mpeg">
+    </audio>
+
+<link rel="stylesheet" href="design.css">
+<script src="thegame.js"></script>
