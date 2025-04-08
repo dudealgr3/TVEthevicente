@@ -57,7 +57,7 @@
     difficultyIncrease: {
         eristoff: 0.08,
         doragua: 0.002,
-        cumpleto: 0.001,
+        cumpleto: 0.0004,
         cogollo: 0.001
     },
     lifeAdjustment: {
